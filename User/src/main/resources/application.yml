@@ -1,0 +1,24 @@
+server:
+  port: 8041
+
+spring:
+  application:
+    name: user
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/ShopSphereUser
+    username: root
+    password: cogentUniversity
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
