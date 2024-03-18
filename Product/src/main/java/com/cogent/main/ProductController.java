@@ -19,8 +19,14 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
+//	@GetMapping("/fetch")
+//	public List<ProductDao> getAllProducts()
+//	{
+//		return productService.fetchAllProducts();
+//	}
+	
 	@GetMapping("/fetch")
-	public List<ProductDao> getAllProducts()
+	public List<ProductEntity> getAllProducts()
 	{
 		return productService.fetchAllProducts();
 	}

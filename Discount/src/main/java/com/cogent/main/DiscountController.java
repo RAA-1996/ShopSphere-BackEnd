@@ -20,8 +20,14 @@ public class DiscountController {
 	@Autowired
 	private DiscountService discountService;
 	
+//	@GetMapping("/get")
+//	public List<DiscountDao> getAllDiscounts(@RequestHeader("Authorization") String authorization)
+//	{
+//		return discountService.fetchAllDiscounts(authorization);
+//	}
+	
 	@GetMapping("/get")
-	public List<DiscountDao> getAllDiscounts(@RequestHeader("Authorization") String authorization)
+	public List<DiscountEntity> getAllDiscounts(@RequestHeader("Authorization") String authorization)
 	{
 		return discountService.fetchAllDiscounts(authorization);
 	}

@@ -16,19 +16,26 @@ public class DiscountService {
 	@Autowired
 	private AdminClientInOrder adminClientInOrder;
 
-	public List<DiscountDao> fetchAllDiscounts(String authorization)	//ADMIN ONLY
+//	public List<DiscountDao> fetchAllDiscounts(String authorization)	//ADMIN ONLY
+//	{
+//		adminClientInOrder.validateTheAdmin(authorization);
+//		
+//		List<DiscountEntity> discountEntityList = discountRepository.findAll();
+//		
+//		return discountEntityList.stream()
+//				.map(discounts -> DiscountDao.builder()
+//						.discountName(discounts.getDiscountName())
+//						.discountCode(discounts.getDiscountCode())
+//						.reductionPercent(discounts.getReductionPercent())
+//						.build())
+//					.collect(Collectors.toList());
+//	}
+	
+	public List<DiscountEntity> fetchAllDiscounts(String authorization)	//ADMIN ONLY
 	{
 		adminClientInOrder.validateTheAdmin(authorization);
 		
-		List<DiscountEntity> discountEntityList = discountRepository.findAll();
-		
-		return discountEntityList.stream()
-				.map(discounts -> DiscountDao.builder()
-						.discountName(discounts.getDiscountName())
-						.discountCode(discounts.getDiscountCode())
-						.reductionPercent(discounts.getReductionPercent())
-						.build())
-					.collect(Collectors.toList());
+		return discountRepository.findAll();
 	}
 
 	public DiscountDao insertDiscount(DiscountDao discountDao, String authorization)	//ADMIN ONLY

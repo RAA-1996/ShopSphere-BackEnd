@@ -2,7 +2,7 @@ package com.cogent.main;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,20 +19,25 @@ public class AdminService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	public List<UserDao> fetchAllUsers() 
+//	public List<UserDao> fetchAllUsers() 
+//	{	
+//		List<UserEntity> allUsers = userRepository.findAll();
+//		
+//		return allUsers.stream()
+//				.map((users) -> UserDao.builder()
+//						.username(users.getUsername())
+//						.email(users.getEmail())
+//						.name(users.getName())
+//						.address(users.getAddress())
+//						.mobile(users.getMobile())
+//						.role(users.getRole())
+//						.build())
+//					.collect(Collectors.toList());
+//	}
+	
+	public List<UserEntity> fetchAllUsers() 
 	{	
-		List<UserEntity> allUsers = userRepository.findAll();
-		
-		return allUsers.stream()
-				.map((users) -> UserDao.builder()
-						.username(users.getUsername())
-						.email(users.getEmail())
-						.name(users.getName())
-						.address(users.getAddress())
-						.mobile(users.getMobile())
-						.role(users.getRole())
-						.build())
-					.collect(Collectors.toList());
+		return userRepository.findAll();
 	}
 
 //	public UserDao fetchUserById(int userId) 

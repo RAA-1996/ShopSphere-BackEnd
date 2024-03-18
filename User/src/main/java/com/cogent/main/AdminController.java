@@ -18,8 +18,14 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
+//	@GetMapping("/users")
+//	public List<UserDao> getAllUsers()
+//	{
+//		return adminService.fetchAllUsers();
+//	}
+	
 	@GetMapping("/users")
-	public List<UserDao> getAllUsers()
+	public List<UserEntity> getAllUsers()
 	{
 		return adminService.fetchAllUsers();
 	}

@@ -15,19 +15,26 @@ public class ProductService {
 	@Autowired
 	private AdminClientInOrder adminClientInOrder;
 
-	public List<ProductDao> fetchAllProducts() 
+//	public List<ProductDao> fetchAllProducts() 
+//	{
+//		List<ProductEntity> allProducts = productRepository.findAll();
+//		
+//		return allProducts.stream()
+//				.map((products) -> ProductDao.builder()
+//						.title(products.getTitle())
+//						.price(products.getPrice())
+//						.description(products.getDescription())
+//						.category(products.getCategory())
+//						.image(products.getImage())
+//						.build())
+//					.collect(Collectors.toList());
+//	}
+	
+	public List<ProductEntity> fetchAllProducts() 
 	{
 		List<ProductEntity> allProducts = productRepository.findAll();
 		
-		return allProducts.stream()
-				.map((products) -> ProductDao.builder()
-						.title(products.getTitle())
-						.price(products.getPrice())
-						.description(products.getDescription())
-						.category(products.getCategory())
-						.image(products.getImage())
-						.build())
-					.collect(Collectors.toList());
+		return allProducts;
 	}
 
 	public ProductDao insertProduct(ProductDao productDao, String authorization)	//ADMIN ONLY
