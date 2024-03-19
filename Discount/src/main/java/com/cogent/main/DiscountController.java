@@ -56,4 +56,11 @@ public class DiscountController {
 		return discountService.fetchDiscountByCode(discountCode);
 	}
 	
+	//for the Backend...
+	@GetMapping("/getOne/{discountId}")
+	public DiscountEntity getOneDiscount(@PathVariable int discountId, @RequestHeader("Authorization") String authorization)
+	{
+		return discountService.fetchOneDiscount(discountId, authorization);
+	}
+	
 }

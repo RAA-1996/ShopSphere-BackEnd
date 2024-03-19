@@ -54,11 +54,15 @@ public class AdminService {
 
 	public UserEntity updateUserById(UserDao userDao, int userId) 
 	{
+//		String userPassword = userRepository.getById(userId).getPassword();
+		
 		UserEntity userEntity = UserEntity.builder()
 		.userId(userId)
 		.username(userDao.getUsername())
 		.email(userDao.getEmail())
-		.password(passwordEncoder.encode(userDao.getPassword()))
+		.password(passwordEncoder.encode(userDao.getPassword()))	//original
+//		.password(userPassword)
+//		.password(userDao.getPassword())
 		.name(userDao.getName())
 		.address(userDao.getAddress())
 		.mobile(userDao.getMobile())
@@ -88,6 +92,7 @@ public class AdminService {
 		
 		return UserDao.builder()
 					.username(oneUser.getUsername())
+					.password(oneUser.getPassword())	//comment out later
 					.email(oneUser.getEmail())
 					.name(oneUser.getName())
 					.address(oneUser.getAddress())

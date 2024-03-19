@@ -109,6 +109,12 @@ public class DiscountService {
 				.build();
 	}
 	
+	//for the Backend...
+	public DiscountEntity fetchOneDiscount(int discountId, String authorization)
+	{
+		return discountRepository.findById(discountId).get();
+	}
+	
 	
 	
 }
